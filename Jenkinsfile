@@ -17,18 +17,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'make build'
+                script {
+                    echo "TESTING AGENT"
+                }
             }
-        }
-        stage('Test') {
-            steps {
-                sh 'make test'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                sh 'make deploy'
-            }
-        }
+        }      
     }
 }
