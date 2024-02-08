@@ -12,7 +12,7 @@ pipeline {
                 script {
                     sh """
                     export KUBECONFIG=$KUBECONFIG
-                    kubectl apply -f nginx.yaml
+                    kubectl apply -f busybox.yaml
                     """
                 }
             }
