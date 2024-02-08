@@ -1,13 +1,20 @@
 pipeline {
-  agent {
-    label 'testing'
-  }
+    agent any
 
-  stages {
-    stage('Hello') {
-      steps {
-        sh 'echo Hello world'
-      }
+    environment {
+        KUBECONFIG = credentials('clusterconfig')
     }
-  }
+
+    stages {
+        stage('Deploy') {
+            steps {
+                script {
+                    sh """
+                    export KUBECONFIG=$KUBECONFIG
+                    kubectl apply -f nginx.yaml
+                    """
+                }
+            }
+        }
+    }
 }
