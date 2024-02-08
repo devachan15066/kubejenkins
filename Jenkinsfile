@@ -24,7 +24,8 @@ pipeline {
                     sh """
                     #!/bin/bash
                     export KUBECONFIG=$KUBECONFIG
-                    kubectl apply -f busybox.yaml
+                    kubectl create namespace busybox
+                    kubectl create -f busybox.yaml -n busybox
                     """
                 }
             }
