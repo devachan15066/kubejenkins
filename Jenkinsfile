@@ -1,7 +1,6 @@
 pipeline {
     agent {
-      kubernetes 
-    }    
+      kubernetes    
     environment {
         KUBECONFIG = credentials('clusterconfig')
     }
