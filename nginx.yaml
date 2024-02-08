@@ -3,17 +3,16 @@ kind: Deployment
 metadata:
   name: nginx-deployment
 spec:
-  replicas: 3
   selector:
     matchLabels:
-      app: nginx
+      app: busybox
   template:
     metadata:
       labels:
-        app: nginx
+        app: busybox
     spec:
       containers:
-      - name: nginx
-        image: nginx
+      - name: busybox
+        image: busybox
         ports:
         - containerPort: 80
